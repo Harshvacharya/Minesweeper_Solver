@@ -20,11 +20,15 @@ Our Minesweeper Solver overcomes these limitations by employing a quadratic prog
 
 1. **Probability Estimation**: We use a variable for each square in the grid to represent the probability (or expected number) of having a mine.
 2. **Constraints Formulation**: 
-   - For a grid cell with a number \( n \), the sum of probabilities of mines in its neighboring cells is constrained to be \( n \).
+   - For a grid cell with a number \(n\) , the sum of probabilities of mines in its neighboring cells is constrained to be \(n\).
    - The probability of a mine in any cell is between 0 and 1.
    - The total number of mines is fixed, so the sum of all probabilities equals the number of mines.
-3. **Objective Function**: Instead of maximizing entropy (which is computationally challenging), we approximate by minimizing the sum of squares of probabilities (\( \sum p^2 \)). This objective helps in distributing the probabilities as uniformly as possible.
-4. **Quadratic Programming Solution**: The resulting problem is a quadratic programming problem that can be solved in weakly polynomial time using any standard QP solver.
+3. **Objective Function**: Instead of maximizing entropy (which is computationally challenging), we approximate by minimizing the sum of squares of probabilities
+   ```math
+   \sum_{i}p_i^2
+   ```
+   This objective helps in distributing the probabilities as uniformly as possible.
+5. **Quadratic Programming Solution**: The resulting problem is a quadratic programming problem that can be solved in weakly polynomial time using any standard QP solver.
 
 ## Implementation Details
 
